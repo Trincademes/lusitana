@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Modelo</title>
+</head>
+<body>
+    <h1>Adicionar Novo Modelo</h1>
+    <form action="{{ url_for('adicionar') }}" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required>
+        
+            <label for="hora">Hora:</label>
+            <input type="number" id="hora" name="hora" min="0" max="23" required> : 
+            <label for="minuto">Minuto:</label>
+            <input type="number" id="minuto" name="minuto" min="0" max="59" required>
+        </div>
+        
+        <div>
+            <label for="apresentacao">Apresentação</label>
+            <input type="text" id="apresentacao" name="apresentacao" required>
+        </div>
+        <div>
+            <label for="agendamento">Agendamento</label>
+            <input type="text" id="agendamento" name="agendamento" required>
+        </div>
+        <div>
+            <label for="tipo_operacao">Tipo de Operação</label>
+            <input type="text" id="tipo_operacao" name="tipo_operacao" required>
+        </div>
+        <div>
+            <label for="numero_bs">Número BS</label>
+            <input type="text" id="numero_bs" name="numero_bs" required>
+        </div>
+        <div>
+            <label for="numero_nf">Número NF</label>
+            <input type="text" id="numero_nf" name="numero_nf" required>
+        </div>
+        <div>
+            <label for="transportadora">Transportadora</label>
+            <input type="text" id="transportadora" name="transportadora" required>
+        </div>
+        <div>
+            <label for="tipo_veiculo">Tipo de Veículo</label>
+            <input type="text" id="tipo_veiculo" name="tipo_veiculo" required>
+        </div>
+        <div>
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" required>
+        </div>
+        <div>
+            <label for="placa_cavalo">Placa Cavalo</label>
+            <input type="text" id="placa_cavalo" name="placa_cavalo" required>
+        </div>
+        <div>
+            <label for="placa_carreta">Placa Carreta</label>
+            <input type="text" id="placa_carreta" name="placa_carreta" required>
+        </div>
+        <div>
+            <label for="numero_container">Número Container</label>
+            <input type="text" id="numero_container" name="numero_container" required>
+        </div>
+        <div>
+            <label for="documentos">Documentos</label>
+            <input type="file" id="documentos" name="documentos" multiple>
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}">Voltar para a lista</a>
+</body>
+</html>

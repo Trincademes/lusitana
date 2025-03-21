@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Modelo</title>
+</head>
+<body>
+    <h1>Editar Modelo</h1>
+
+    <form action="{{ url_for('editar', id=modelo.id) }}" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" class="form-control" id="data" name="data" value="{{ modelo.data.strftime('%Y-%m-%d') }}" required>
+
+            <label for="hora">Hora:</label>
+            <input type="text" class="form-control" id="hora" name="hora" value="{{ modelo.hora }}" required>
+            <label for="minuto">Minuto:</label>
+            <input type="text" class="form-control" id="minuto" name="minuto" value="{{ modelo.minuto }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="apresentacao">Apresentação</label>
+            <input type="text" class="form-control" id="apresentacao" name="apresentacao" value="{{ modelo.apresentacao }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="agendamento">Agendamento</label>
+            <input type="text" class="form-control" id="agendamento" name="agendamento" value="{{ modelo.agendamento }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tipo_operacao">Tipo de Operação</label>
+            <input type="text" class="form-control" id="tipo_operacao" name="tipo_operacao" value="{{ modelo.tipo_operacao }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="numero_bs">Número BS</label>
+            <input type="text" class="form-control" id="numero_bs" name="numero_bs" value="{{ modelo.numero_bs }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="numero_nf">Número NF</label>
+            <input type="text" class="form-control" id="numero_nf" name="numero_nf" value="{{ modelo.numero_nf }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="transportadora">Transportadora</label>
+            <input type="text" class="form-control" id="transportadora" name="transportadora" value="{{ modelo.transportadora }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tipo_veiculo">Tipo de Veículo</label>
+            <input type="text" class="form-control" id="tipo_veiculo" name="tipo_veiculo" value="{{ modelo.tipo_veiculo }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" value="{{ modelo.cpf }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="placa_cavalo">Placa Cavalo</label>
+            <input type="text" class="form-control" id="placa_cavalo" name="placa_cavalo" value="{{ modelo.placa_cavalo }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="placa_carreta">Placa Carreta</label>
+            <input type="text" class="form-control" id="placa_carreta" name="placa_carreta" value="{{ modelo.placa_carreta }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="numero_container">Número Container</label>
+            <input type="text" class="form-control" id="numero_container" name="numero_container" value="{{ modelo.numero_container }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="documentos">Documentos (Novos arquivos)</label>
+            <input type="file" class="form-control" id="documentos" name="documentos" multiple>
+        </div>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('index') }}">Voltar para a lista</a>
+</body>
+</html>
