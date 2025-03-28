@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <form method="POST" action="{{ url_for('cadastro') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            <label for="username">Nome de Usuário:</label>
+            {{ form.username(class="form-control") }}
+        </div>
+        <div>
+            <label for="password">Senha:</label>
+            {{ form.password(class="form-control") }}
+        </div>
+        <div>
+            <label for="confirm_password">Confirmar Senha:</label>
+            {{ form.confirm_password(class="form-control") }}
+        </div>
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
+    <p>Já tem uma conta? <a href="{{ url_for('login') }}">Faça login aqui</a></p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos Cadastrados</title>
+</head>
+<body>
+    <h1>Bem-vindo, {{ username }}!</h1>
+    <a href="{{ url_for('adicionar') }}">Adicionar Novo Modelo</a>
+    <h2>Modelos Cadastrados</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Horario</th>
+                <th>Apresentação</th>
+                <th>Agendamento</th>
+                <th>Tipo de Operação</th>
+                <th>Número BS</th>
+                <th>Número NF</th>
+                <th>Transportadora</th>
+                <th>Tipo de Veículo</th>
+                <th>CPF</th>
+                <th>Placa Cavalo</th>
+                <th>Placa Carreta</th>
+                <th>Número Container</th>
+                <th>Documentos</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for modelo in modelos %}
+            <tr>
+                <td>{{ modelo.data }}</td>
+                <td>{{ modelo.hora }} : {{ modelo.minuto }}</td>
+                <td>{{ modelo.apresentacao }}</td>
+                <td>{{ modelo.agendamento }}</td>
+                <td>{{ modelo.tipo_operacao }}</td>
+                <td>{{ modelo.numero_bs }}</td>
+                <td>{{ modelo.numero_nf }}</td>
+                <td>{{ modelo.transportadora }}</td>
+                <td>{{ modelo.tipo_veiculo }}</td>
+                <td>{{ modelo.cpf }}</td>
+                <td>{{ modelo.placa_cavalo }}</td>
+                <td>{{ modelo.placa_carreta }}</td>
+                <td>{{ modelo.numero_container }}</td>
+                <td>
+                    {% if modelo.documentos %}
+                        {% for doc in modelo.documentos.split(',') %}
+                            <a href="{{ url_for('static', filename='uploads/' + doc) }}" target="_blank">{{ doc }}</a><br>
+                        {% endfor %}
+                    {% else %}
+                        Nenhum documento disponível
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ url_for('editar', id=modelo.id) }}">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ url_for('adicionar') }}">Adicionar Novo Modelo</a>
+</body>
+
+</html>
